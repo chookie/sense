@@ -3,10 +3,16 @@ package com.chookie.sense.client;
 import com.chookie.sense.client.mood.HappinessChartData;
 import com.chookie.sense.client.mood.MoodChartData;
 import com.chookie.sense.client.user.LeaderboardData;
+import com.chookie.sense.infrastructure.ClientEndpoint;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.net.URL;
+import java.nio.file.Paths;
+
+import static java.lang.ClassLoader.getSystemResource;
 
 public class Dashboard extends Application {
 
@@ -18,6 +24,9 @@ public class Dashboard extends Application {
         HappinessChartData happinessChartData = new HappinessChartData();
 
         // ToDo: wire up the models to the services they're getting the data from
+        ClientEndpoint<String> userEndpoint = ClientEndpoint.createPassthroughEndpoint("ws://localhost:8083/users/");
+        userEndpoint.addListener(leaderboardData);
+        userEndpoint.connect();
 
         // initialise the UI
         FXMLLoader loader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
@@ -27,7 +36,7 @@ public class Dashboard extends Application {
 
         // wire up the models to the controllers
         DashboardController dashboardController = loader.getController();
-//        dashboardController.getLeaderboardController().setData(leaderboardData);
+        dashboardController.getLeaderboardController().setData(leaderboardData);
 //        dashboardController.getMoodController().setData(moodChartData);
 //        dashboardController.getHappinessController().setData(happinessChartData);
 

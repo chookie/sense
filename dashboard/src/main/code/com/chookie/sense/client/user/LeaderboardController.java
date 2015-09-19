@@ -8,6 +8,7 @@ public class LeaderboardController {
     private TableView<TwitterUser> leaders;
 
     public void setData(LeaderboardData data) {
+
         leaders.setItems(data.getItems());
     }
 }

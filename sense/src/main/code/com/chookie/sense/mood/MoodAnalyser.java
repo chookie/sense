@@ -2,14 +2,11 @@ package com.chookie.sense.mood;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Stream;
 
 import static com.chookie.sense.mood.Mood.HAPPY;
 import static com.chookie.sense.mood.Mood.SAD;
 import static com.chookie.sense.twitter.TweetParser.getTweetMessageFrom;
-import static java.util.stream.Collectors.toSet;
 
 public class MoodAnalyser {
     private static final Map<String, Mood> WORD_TO_MOOD = new HashMap<>();
