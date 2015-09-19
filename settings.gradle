@@ -1,4 +1,4 @@
-rootProject.name = 'sense'
 include 'service'
 include 'dashboard'
+include 'sense'
 

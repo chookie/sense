@@ -1,0 +1,18 @@
+group 'com.chookie'
+version '1.0-SNAPSHOT'
+
+sourceSets {
+    main {
+        java.srcDirs = []
+        groovy.srcDirs = ['src/main/code']
+    }
+    test {
+        java.srcDirs = []
+        groovy.srcDirs = ['src/test/unit','src/test/system']
+    }
+}
+
+dependencies {
+    compile project(':service')
+    compile 'org.eclipse.jetty.websocket:javax-websocket-server-impl:9.2.6.v20141205'
+}
