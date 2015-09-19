@@ -5,5 +5,13 @@
 <VBox xmlns:fx="http://javafx.com/fxml"
       spacing="10" alignment="CENTER"
       fx:controller="com.chookie.sense.client.mood.HappinessController">
-
+      <BarChart fx:id="happinessOverTime" title="Happiness over Time"
+                prefHeight="600" legendVisible="false" barGap="0">
+            <xAxis>
+                  <CategoryAxis label="Minute" animated="false"/>
+            </xAxis>
+            <yAxis>
+                  <NumberAxis fx:id="yAxis" label="Count" tickUnit="1" minorTickVisible="false" autoRanging="true" />
+            </yAxis>
+      </BarChart>
 </VBox>

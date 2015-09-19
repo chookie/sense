@@ -17,7 +17,12 @@ public class MoodyMessage {
 
     @Override
     public String toString() {
-        return super.toString();
+
+        String result = moods.stream()
+                .map(Enum::toString)
+                .collect(joining(","));
+        System.out.println("MoodyMessage=" + result);
+        return result;
     }
 
 }

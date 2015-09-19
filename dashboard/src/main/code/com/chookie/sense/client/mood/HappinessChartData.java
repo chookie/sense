@@ -4,8 +4,11 @@ import com.chookie.sense.infrastructure.MessageListener;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import static java.time.LocalTime.now;
 
@@ -15,8 +18,10 @@ public class HappinessChartData implements MessageListener<TweetMood> {
 
     public HappinessChartData() {
         // TODO: get minute value for right now
+        int minute = LocalDateTime.now().getMinute();
 
         // TODO: create an empty bar for every minute for the next ten minutes
+        IntStream.range(minute, minute + 10).forEach(this::initialiseBarToZero);
     }
 
     @Override
