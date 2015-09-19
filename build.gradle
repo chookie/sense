@@ -1,0 +1,24 @@
+group 'com.chookie'
+version '1.0-SNAPSHOT'
+
+subprojects {
+    apply plugin: 'groovy'
+
+    repositories {
+        mavenCentral()
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    dependencies {
+        testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+        testCompile 'cglib:cglib-nodep:3.1'
+        testCompile 'org.objenesis:objenesis:2.1'
+        testCompile 'org.codehaus.groovy:groovy-all:2.4.0'
+    }
+
+    task wrapper(type: Wrapper) {
+        gradleVersion = '2.6'
+    }
+}
